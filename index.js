@@ -87,7 +87,7 @@ if (useTrap) {
   const origCreateSecureContext = tls.createSecureContext;
   tls.createSecureContext = function(options) {
     var c = origCreateSecureContext.apply(null, arguments);
-    if (!options.ca && rootCAs.length > 0) {
+    if (!options?.ca && rootCAs.length > 0) {
       rootCAs.forEach(function(ca) {
         // add to the created context our own root CAs
         c.context.addCACert(ca);
