@@ -52,7 +52,7 @@ npm -s test
 
 ## License
 
-Copyright 2021 Aral Balkan, Small Technology foundation.
+Copyright 2021-present Aral Balkan, Small Technology Foundation.
 Copyright 2016 Capriza.
 
 Code released under the [MIT license](LICENSE.md)
