@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.1] - 2023-02-14
+
+The one with Chris Wood’s fix.
+
+### Fixed
+
+  - Includes [Chris Wood’s fix for TypeError: Cannot read properties of undefined (reading 'ca')](https://github.com/small-tech/syswide-cas/issues/1)
+
+### Updated
+
+  - Includes latest self-signed.badssl.com certificate for use in tests (the previous one had expired and tests were failing because of that).
+
 ## [6.0.0] - 2021-03-10
 
 Now with passing tests.

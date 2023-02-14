@@ -1,6 +1,6 @@
 {
   "name": "@small-tech/syswide-cas",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "Fork of syswide-cas by a now-defunct company called Capriza. Enable node to use system wide certificate authorities in conjunction with the bundled root CAs.",
   "keywords": [
     "tls",
