@@ -1,13 +1,17 @@
 {
   "name": "@small-tech/syswide-cas",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "description": "Fork of syswide-cas by a now-defunct company called Capriza. Enable node to use system wide certificate authorities in conjunction with the bundled root CAs.",
   "keywords": [
     "tls",
-    "ca",
-    "root"
+    "certificate authority",
+    "root certificate authority",
+    "self-signed certificate",
+    "CA",
+    "root",
+    "root CA"
   ],
-  "homepage": "https://github.com/capriza/syswide-cas/",
+  "homepage": "https://codeberg.org/small-tech/syswide-cas",
   "files": [],
   "contributors": [
     "Aral Balkan (https://small-tech.org) <aral@small-tech.org>",
@@ -20,10 +24,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/small-tech/syswide-cas.git"
+    "url": "https://codeberg.org/small-tech/syswide-cas.git"
   },
   "bugs": {
-    "url": "https://github.com/small-tech/syswide-cas/issues"
+    "url": "https://codeberg.org/small-tech/syswide-cas/issues"
   },
   "license": "MIT",
   "engines": {
