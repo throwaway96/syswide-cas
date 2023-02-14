@@ -1,50 +1,49 @@
-syswide-cas
-===
+# @small-tech/syswide-cas
 
 ___Note: this is a fork of the original module being maintained by [Aral Balkan](https://ar.al) of [Small Technology Foundation](https://small-tech.org) as the original company seems to have gone out of business.___
 
-Enable node to use custom certificate authorities _in conjunction_ with the bundled root CAs.
+Enables Node.js to use custom Certificate Authorities (CAs) _alongside_ the bundled root CAs.
 
-Up until version 7, node did not support system-wide installed trusted certificate authorities. It was only possible to specify a custom CA via the `ca` option in the `tls` and `https` modules, or fallback to using the bundled list of root CAs that node is compiled with.
+Until version 7, Node did not support system-wide installed trusted CAs. You could only specify a custom CA via the `ca` option in the `tls` and `https` modules or fallback to using the bundled list of root CAs Node is compiled with.
 
-Starting with node 7, it's possible to set the `NODE_EXTRA_CA_CERTS` environment variable to a single file containing additional root CA to trust, however it still does not allow programatic addition of several directories and files containing root CAs.
+Starting with version 7, it’s possible to set the `NODE_EXTRA_CA_CERTS` environment variable to a single file containing an additional root CA to trust, however it still does not allow programmatic addition of several directories and files containing root CAs.
 
-This module enables loading custom CAs to be used _in conjunction_ with the node bundled root CAs. syswide-cas will auto load root CAs from the file `/etc/ssl/ca-node.pem` if it exists.
+This module enables custom CAs to be used _alongside_ the root CAs bundled with Node.
+
+> 💡 syswide-cas will automatically load root CAs from the file `/etc/ssl/ca-node.pem` if it exists.
 
 
-## Installation
+## Install
 
 ```
 npm i @small-tech/syswide-cas
 ```
 
-## Usage
+## Use
 
-Add `require('syswide-cas')` as soon as possible as it affects all later TLS calls.
+> 💡 Import `@small-tech/syswide-cas` before any TLS calls if you use dynamic imports.
 
 ```javascript
-// "require('syswide-cas')" immediatley loads CAs from the file /etc/ssl/ca-node.pem if it exists
-const syswidecas = require('syswide-cas')
+// Importing syswide-cas automatically loads Certificate Authorities (CAs) from the file _/etc/ssl/ca-node.pem_ if it exists
+import syswideCas from '@small-tech/syswide-cas'
 
-// optionally load all files from a custom directory
-syswidecas.addCAs('/my/custom/path/to/certs/dir')
+// Optionally, load all files from a custom directory.
+syswideCas.addCAs('/my/custom/path/to/certs/dir')
 
-// or multiple directories
-syswidecas.addCAs(['/my/custom/path/to/certs/dir1', '/my/other/path/to/certs/dir2'])
+// Or multiple directories.
+syswideCas.addCAs(['/my/custom/path/to/certs/dir1', '/my/other/path/to/certs/dir2'])
 
-// optionally load a file directly
-syswidecas.addCAs('/my/custom/path/to/cert.pem')
+// Optionally, load a file directly.
+syswideCas.addCAs('/my/custom/path/to/cert.pem')
 
-// or multiple files
-syswidecas.addCAs(['/my/custom/path/to/cert1.pem', '/my/other/path/to/cert2.pem'])
+// Or multiple files.
+syswideCas.addCAs(['/my/custom/path/to/cert1.pem', '/my/other/path/to/cert2.pem'])
 
-
-const https = require('https')
+import https from 'node:https'
 https.get('https://my.custom.domain.com/with/self/signed/cert')
-
 ```
 
-## Tests
+## Test
 
 ```js
 npm -s test
@@ -56,4 +55,3 @@ Copyright 2021-present Aral Balkan, Small Technology Foundation.
 Copyright 2016 Capriza.
 
 Code released under the [MIT license](LICENSE.md)
-
